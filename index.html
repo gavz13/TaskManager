@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            color: #444;
+            margin-top: 60px;
+        }
+        .task-input, .login-input, .register-input {
+            padding: 12px;
+            width: 260px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .add-btn, .login-btn, .register-btn {
+            padding: 12px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .add-btn:hover, .login-btn:hover, .register-btn:hover {
+            background-color: #5cb85c;
+        }
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+        .task-item {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .task-item.completed {
+            text-decoration: line-through;
+            color: #aaa;
+        }
+        .delete-btn {
+            background-color: #c9302c;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #a71d2a;
+        }
+        .form-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gavin's Task Manager</h1>
+
+    <div id="loginForm" class="form-container">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" class="login-input" placeholder="Username">
+        <input type="password" id="loginPassword" class="login-input" placeholder="Password">
+        <button class="login-btn" onclick="login()">Login</button>
+        <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register here</a>.</p>
+    </div>
+
+    <div id="registerForm" class="form-container">
+        <h2>Register</h2>
+        <input type="text" id="registerUsername" class="register-input" placeholder="Username">
+        <input type="password" id="registerPassword" class="register-input" placeholder="Password">
+        <button class="register-btn" onclick="register()">Register</button>
+        <p>Already have an account? <a href="#" onclick="showLoginForm()">Login here</a>.</p>
+    </div>
+
+    <div id="taskManager" class="form-container">
+        <input type="text" id="taskInput" class="task-input" placeholder="New task here">
+        <input type="date" id="taskDueDate" class="task-input" placeholder="Due date">
+        <button class="add-btn" onclick="createTask()">Add Task</button>
+        
+        <ul id="taskList" class="task-list"></ul>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
